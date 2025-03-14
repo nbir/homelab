@@ -6,11 +6,11 @@ A Kubernetes cluster running [k3s](https://k3s.io/) on Raspberry Pi master & wor
 
 ### Set up Kubernetes (K3s) on Raspberry Pi
 
-1. Flash headless debian image _Raspberry Pi OS Lite_ using Raspberry Pi Imager. Edit settings to set a unique hostname and Enable SSH > Allow public-key authentication only.
+1. Flash headless Debian image _Raspberry Pi OS Lite_ using Raspberry Pi Imager. Edit settings to set a unique hostname and Enable SSH > Allow public-key authentication only.
 
 2. Assign static IP addresses by either configuring the DHCP settings on your router or by editing the network interface file on each host.
 
-3. Enable `cgroups` by appending `cgroup_memory=1 cgroup_enable=memory` to `/boot/firmware/cmdline.txt`.
+3. Enable `cgroups` on each host by appending `cgroup_memory=1 cgroup_enable=memory` to `/boot/firmware/cmdline.txt`.
 
 4. Install **k3s** on the master node by running `sudo curl -sfL https://get.k3s.io | sh -`.
 

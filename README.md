@@ -4,6 +4,7 @@ Homelab content:
 
 1. [hardware/](/hardware/) - hardware components & network configuration
 2. [kubernetes/](/kubernetes/) - kubernetes setup
+3. [metallb/](/metallb/) - MetalLB load balancer
 
 ## How To
 
