@@ -39,3 +39,10 @@ systemctl restart k3s
 4. Port forward `:6443` (default kubernetes API port) to the master node's IP address.
 
 5. Copy the kube context from the master node onto the remote machine. Get the full context by running `kubectl config view --raw`. Replace `cluster.server` to the public IP address.
+
+
+## References
+
+- [Step-by-Step Guide: Creating a Kubernetes Cluster on Raspberry Pi 5 with K3s
+](https://everythingdevops.dev/step-by-step-guide-creating-a-kubernetes-cluster-on-raspberry-pi-5-with-k3s/)
+- [K3s vs MicroK8s Lightweight Kubernetes Distributions](https://www.wallarm.com/cloud-native-products-101/k3s-vs-microk8s-lightweight-kubernetes-distributions)

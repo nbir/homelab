@@ -61,7 +61,7 @@ validatingwebhookconfiguration.admissionregistration.k8s.io/metallb-webhook-conf
 
 The verify steps are adapted from [this](https://opensource.com/article/20/7/homelab-metallb) guide.
 
-1. All manifests are in directory [/manifests-verify](/manifests-verify/). Create resources by running `kubectl apply -f manifests-verify`. This will create the following resources:
+1. All manifests are in directory [/manifests-verify](./manifests-verify/). Create resources by running `kubectl apply -f manifests-verify`. This will create the following resources:
 
 ```
 namespace/kube-verify
@@ -91,6 +91,8 @@ systemctl daemon-reload && systemctl restart k3s
 
 ## References
 
-- https://opensource.com/article/20/7/homelab-metallb
+- [Install a Kubernetes load balancer on your Raspberry Pi homelab with MetalLB
+](https://opensource.com/article/20/7/homelab-metallb)
+- [MetalLB and KinD: Loads Balanced Locally](https://medium.com/@tylerauerbeck/metallb-and-kind-loads-balanced-locally-1992d60111d8)
 - https://metallb.io/installation/
 - https://metallb.io/configuration/
