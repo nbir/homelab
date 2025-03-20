@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: beermetwice-nibir-xyz
+  namespace: beermetwice
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: beermetwice.nibir.xyz
+    http:
+      paths:
+      - path:
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: cheers-counter
+            port:
+              number: 80

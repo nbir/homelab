@@ -2,7 +2,8 @@
 
 - Raspberry Pi Zero W (x1)
 - Raspberry Pi 4 Model B 4GB (x5)
-- NVIDIA Jetson Nano Developer Kit
+- NVIDIA Jetson Nano Developer Kit (x1)
+- NVIDIA Jetson Orin Nano Developer Kit (x1)
 - Google WiFi system
 - Netgear unmanaged switch (x2)
 
@@ -28,7 +29,8 @@ Fixed IPs reserved for Kubernetes master & worker nodes:
 Fixed IPs reserved for GPU Kubernetes worker node (NVIDIA Jetson Nano):
 
 ```
-192.168.86.30                               # nb-njn-01
+192.168.86.131                               # nb-njn-01
+192.168.86.132                               # nb-njn-02 (orin)
 ```
 
 ## Port Forwarding
@@ -36,8 +38,9 @@ Fixed IPs reserved for GPU Kubernetes worker node (NVIDIA Jetson Nano):
 Ports forwarded from the router, can be accessed using URL `<PUBLIC_IP_ADDRESS>:<PORT>`.
 
 1. SSH into bastion server.
+
 ```
-"22     -> 192.168.86.101:22 (TCP)          # nb-rpi-00 (bastion)
+:22     -> 192.168.86.101:22 (TCP)          # nb-rpi-00 (bastion)
 ```
 
 2. Kubernetes API Server on master node.
@@ -46,9 +49,6 @@ Ports forwarded from the router, can be accessed using URL `<PUBLIC_IP_ADDRESS>:
 :6443   -> 192.168.86.111:6443 (TCP/UDP)    # nb-rpi-01 (k3s master)
 ```
 
-3. Ingress controller on Kubernetes a pinned node.
+## Instructions
 
-```
-:80     -> 192.168.86.114:80 (TCP)          # nb-rpi-04
-:443    -> 192.168.86.114:443 (TCP)         # nb-rpi-04
-```
+1. Use [guide](https://www.jetson-ai-lab.com/initial_setup_jon.html) to upgrade firmware on NVIDIA Jetson Orin Nano Developer Kit.

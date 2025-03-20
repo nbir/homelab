@@ -1,12 +1,19 @@
 # Homelab
 
-Homelab content:
+Homelab content.
+
+
+Infrastucture:
 
 1. [hardware/](/hardware/) - hardware components & network configuration
 2. [kubernetes/](/kubernetes/) - kubernetes setup
 3. [metallb/](/metallb/) - MetalLB load balancer
 4. [ingress-nginx/](/ingress-nginx/) - Ingress NGINX Controller
 5. [cloudflare-tunnel/](/cloudflare-tunnel/) - Cloudflare zero trust tunnel
+
+Applications:
+
+5. [beermetwice/](/beermetwice/) - BeerMeTwice, drink counter app
 
 ## How To
 

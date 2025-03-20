@@ -1,5 +1,12 @@
 # Ingress NGINX Controller
 
+To create an ingress resource to point to a service run the following command. Use `nibir.xyz` for all external subdomains.
+
+```
+kubectl create ingress <ingress-resource-name> --class=nginx \
+  --rule="<subdomain>.<domain>/*=<service-resource-name>:<port>"
+```
+
 ## Instructions
 
 Install Ingress NGINX by applying manifest:
@@ -61,15 +68,6 @@ systemctl daemon-reload && systemctl restart k3s
 
 ```
 kubectl edit service ingress-nginx-controller --namespace=ingress-nginx
-```
-
-## Create An `Ingress` Resource
-
-To create an ingress resource to point to a service run the following command. Use `nibir.xyz` for all external subdomains.
-
-```
-kubectl create ingress <ingress-resource-name> --class=nginx \
-  --rule="<subdomain>.<domain>/*=<service-resource-name>:<port>"
 ```
 
 ## References

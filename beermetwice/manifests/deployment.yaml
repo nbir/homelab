@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cheers-counter
+  namespace: beermetwice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cheers-counter
+  template:
+    metadata:
+      labels:
+        app: cheers-counter
+    spec:
+      containers:
+      - name: cheers-counter
+        image: docker.io/nibir/cheers-counter:63ad6a9
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

@@ -16,6 +16,8 @@ deployment.apps/cloudflared
 
 5. Expose an endpoint by creating an `Ingress` resource (see [ingress-nginx/README.md](/ingress-nginx/README.md)).
 
+6. Turn on __Always Use HTTPS__ on Cloudflare dashboard under SSL/TLS > Edge Certificates.
+
 ### Troubleshooting
 
 1. Set container `cloudflared` image to `cloudflare/cloudflared:latest` (instead of pinned version) if pods are in CrashLoopBackOff. Pod error would show something like:
