@@ -94,9 +94,37 @@ This will create the following resources:
 ingress.networking.k8s.io/longhorn-ingress
 ```
 
+### Verify
+
+1. Install test PVC and pod by applying manifests:
+```
+kubectl apply -f manifests-test
+```
+
+This will create the following resources:
+```
+namespace/longhorn-test
+persistentvolumeclaim/longhorn-test-pvc
+pod/longhorn-test
+```
+
+2. Verify that the PV is created and can write to it from the pod. Also verify volume on the Longhorn dashboard.
+```
+kubectl get pv -n longhorn-test
+
+kubectl exec -n longhorn-test -it longhorn-test -- sh
+echo "testing" > /data/test.txt
+```
+
+3. Cleanup test resources:
+```
+kubectl delete -f manifests-test
+```
+
 ## References
 
 - https://longhorn.io/docs/1.8.1/deploy/install/
 - https://longhorn.io/docs/1.8.1/deploy/install/install-with-kubectl/
 - https://longhorn.io/docs/1.8.1/deploy/accessing-the-ui/longhorn-ingress/
 - [Kubernetes Homelab Series (Part 2): Longhorn + MinIO for Persistent Storage](https://pdelarco.medium.com/kubernetes-homelab-series-part-2-longhorn-minio-for-persistent-storage-7f65e0bfbbb8)
+- [Distributed Block Storage (Longhorn)](https://picluster.ricsanfre.com/docs/longhorn/)
