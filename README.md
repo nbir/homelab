@@ -10,10 +10,11 @@ Infrastucture:
 3. [metallb/](/metallb/) - MetalLB load balancer
 4. [ingress-nginx/](/ingress-nginx/) - Ingress NGINX Controller
 5. [cloudflare-tunnel/](/cloudflare-tunnel/) - Cloudflare zero trust tunnel
+6. [longhorn/](/longhorn/) - distributed block storage for PVs
 
 Applications:
 
-5. [beermetwice/](/beermetwice/) - BeerMeTwice, drink counter app
+1. [beermetwice/](/beermetwice/) - BeerMeTwice, drink counter app
 
 ## How To
 
