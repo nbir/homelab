@@ -11,6 +11,7 @@ Infrastucture:
 4. [ingress-nginx/](/ingress-nginx/) - Ingress NGINX Controller
 5. [cloudflare-tunnel/](/cloudflare-tunnel/) - Cloudflare zero trust tunnel
 6. [longhorn/](/longhorn/) - distributed block storage for PVs
+7. [kube-prometheus-stack/](/kube-prometheus-stack) - Prometheus & Grafana monitoring stack
 
 Applications:
 
