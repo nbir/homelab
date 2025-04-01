@@ -121,6 +121,20 @@ echo "testing" > /data/test.txt
 kubectl delete -f manifests-test
 ```
 
+### Migrate a PVC from `local-path` to `longhorn` StorageClass
+
+1. Create a new PVC with StorageClass `longhorn`.
+
+2. If accessMode `ReadWriteOnce` is set on the old PVC, scale down the Deployment/pod it is mounted to.
+
+2. Run the [volume-migration](https://github.com/longhorn/longhorn/blob/master/examples/data_migration.yaml) example job using the old and new PVCs.
+
+3. Once the job is complete, switch the Deployment/pod to use the new PVC (and scale up if needed).
+
+4. Delete the job by running `kubectl delete job volume-migration`.
+
+5. Delete the old PVC by running `kubectl delete pvc <old-pvc-name>`.
+
 ## References
 
 - https://longhorn.io/docs/1.8.1/deploy/install/

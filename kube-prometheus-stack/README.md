@@ -37,5 +37,4 @@ Note: The `values.yaml` file overrides:
 - [Kubernetes Homelab Series (Part 3): Monitoring and Observability with Prometheus and Grafana](https://pdelarco.medium.com/kubernetes-homelab-series-part-3-monitoring-and-observability-with-prometheus-and-grafana-cac63802c1f9)
 - [Setting Up a Prometheus and Grafana Monitoring Stack from Scratch
 ](https://medium.com/@platform.engineers/setting-up-a-prometheus-and-grafana-monitoring-stack-from-scratch-63667bf3e011)
-- [How to create a Monitoring Stack using Kube-Prometheus-stack (Part 1)
-](https://medium.com/israeli-tech-radar/how-to-create-a-monitoring-stack-using-kube-prometheus-stack-part-1-eff8bf7ba9a9)
+- [How to create a Monitoring Stack using Kube-Prometheus-stack (Part 1)](https://medium.com/israeli-tech-radar/how-to-create-a-monitoring-stack-using-kube-prometheus-stack-part-1-eff8bf7ba9a9)
