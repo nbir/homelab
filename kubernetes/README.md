@@ -21,14 +21,12 @@ A Kubernetes cluster running [k3s](https://k3s.io/) on Raspberry Pi master & wor
 1. Determine public IP address by running `curl ifconfig.co`. Alternatively, you can get this from our router's WAN IP.
 
 2. Add the public IP address as a Subject Alternative Name on the TLS cert by appending the following configuration to `/etc/rancher/k3s/config.yaml`:
-
 ```
 tls-san: 
   - <public-ip-address>
 ```
 
 3. Re-sign the TLS cert for the public IP by deleting the current cert & restarting **k3s**.
-
 ```
 kubectl -n kube-system delete secrets/k3s-serving
 rm /var/lib/rancher/k3s/server/tls/dynamic-cert.json
@@ -40,6 +38,14 @@ systemctl restart k3s
 
 5. Copy the kube context from the master node onto the remote machine. Get the full context by running `kubectl config view --raw`. Replace `cluster.server` to the public IP address.
 
+### Don't Schedule on Master Node
+
+1. Taint master node with NoSchedule. If this taint is added after initial setup, you may need to drain the node by running `kubectl drain <master-node-name> --force --ignore-daemonsets --delete-emptydir-data`.
+```
+kubectl taint nodes <master-node-name> node-role.kubernetes.io/master:NoSchedule
+```
+
+2. On Longhorn UI, Edit Node > set Node Scheduling to Disable.
 
 ## References
 
