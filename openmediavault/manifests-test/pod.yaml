@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: openmediavault-nfs-test
+  namespace: openmediavault-test
+spec:
+  containers:
+  - name: openmediavault-nfs-test
+    image: nginx:stable-alpine
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - name: openmediavault-nfs-test-pvc
+      mountPath: /data
+    ports:
+    - containerPort: 80
+  volumes:
+  - name: openmediavault-nfs-test-pvc
+    persistentVolumeClaim:
+      claimName: openmediavault-nfs-test-pvc

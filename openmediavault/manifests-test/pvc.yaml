@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openmediavault-nfs-test-pvc
+  namespace: openmediavault-test
+spec:
+  selector:
+    matchLabels:
+      store: openmediavault-nfs-test-pv
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1Gi

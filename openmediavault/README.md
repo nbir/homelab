@@ -66,6 +66,36 @@ service/openmediavault-ui
 ingress.networking.k8s.io/openmediavault-nibir-xyz
 ```
 
+### Verify Mounting a NFS PVC to a Pod
+
+Note this approach creates a PVC without a StorageClass.
+
+1. Install test PVC and pod by applying manifests:
+    ```
+    kubectl apply -f manifests-test
+    ```
+
+This will create the following resources:
+    ```
+    namespace/openmediavault-test
+    persistentvolume/openmediavault-nfs-test-pv
+    persistentvolumeclaim/openmediavault-nfs-test-pvc
+    pod/openmediavault-nfs-test
+    ```
+
+2. Verify that the PV is created and can write to it from the pod. Also verify volume on the Longhorn dashboard.
+    ```
+    kubectl get pv -n openmediavault-test
+
+    kubectl exec -n openmediavault-test -it openmediavault-nfs-test -- sh
+    echo "testing" > /data/test.txt
+    ```
+
+3. Cleanup test resources:
+    ```
+    kubectl delete -f manifests-test
+    ```
+
 ## Reference
 
 - https://docs.openmediavault.org/en/stable/index.html

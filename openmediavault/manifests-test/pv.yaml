@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: openmediavault-nfs-test-pv
+  namespace: openmediavault-test
+  labels:
+    store: openmediavault-nfs-test-pv
+spec:
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  capacity:
+    storage: 1Gi
+  nfs:
+    server: 192.168.86.114
+    path: /export/nb-nas-k8s-01
