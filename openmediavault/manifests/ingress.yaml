@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: openmediavault-nibir-xyz
+  namespace: openmediavault
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: openmediavault.nibir.xyz
+    http:
+      paths:
+      - backend:
+          service:
+            name: openmediavault-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix

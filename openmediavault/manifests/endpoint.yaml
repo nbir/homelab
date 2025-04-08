@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: openmediavault-ui
+  namespace: openmediavault
+subsets:
+  - addresses:
+      - ip: 192.168.86.114
+    ports:
+      - port: 80

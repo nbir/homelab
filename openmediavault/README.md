@@ -22,7 +22,7 @@ nb-nas-k8s-01           # for Kubernetes use
     wget -O - https://raw.githubusercontent.com/OpenMediaVault-Plugin-Developers/installScript/master/install | bash
     ```
 
-3. Log into OpenMediaVault UI on http://<HOST-IP-ADDRESS> (username: admin, password openmediavault). (Port forwarding is configured).
+3. Log into OpenMediaVault UI on http://<HOST-IP-ADDRESS> (username: admin, password openmediavault). (Exposed via Kubernetes Ingress later).
 
 3. Enable widgets under Dashboard.
 
@@ -49,6 +49,23 @@ nb-nas-k8s-01           # for Kubernetes use
     umount /<mount-directory>
     ```
 
+### Expose OpenMediaVault UI via Ingress
+
+Instead of port forwarding to the NFS host IP, expose it using a Endpoint-Service-Ingress resource combination. The OpenMediaVault UI can be accessed on [http://192.168.86.114/](http://192.168.86.114/) on local network, or [https://openmediavault.nibir.xyz/](https://openmediavault.nibir.xyz/) externally.
+
+Apply manifest:
+```
+kubectl apply -f manifests
+```
+
+This will create the following resources:
+```
+namespace/openmediavault
+endpoints/openmediavault-ui
+service/openmediavault-ui
+ingress.networking.k8s.io/openmediavault-nibir-xyz
+```
+
 ## Reference
 
 - https://docs.openmediavault.org/en/stable/index.html
@@ -56,3 +73,5 @@ nb-nas-k8s-01           # for Kubernetes use
 - https://github.com/openmediavault/openmediavault-k8s-recipes
 - [Setting Up an OpenMediaVault Home Server with Docker, Plex, Ubooquity, and WireGuard](https://benjamintseng.com/2023/07/setting-up-an-openmediavault-home-server-with-docker-plex-ubooquity-and-wireguard/)
 - [Part II: Building a Raspberry Pi NAS with OpenMediaVault: A Step-by-Step Configuration Guide](https://medium.com/@james.prakash/part-ii-building-a-raspberry-pi-nas-with-openmediavault-a-step-by-step-configuration-guide-1a177a6b1dce)
+- [Traefik IngressRoute. How to proxy a request to an external IP-address?](https://serverfault.com/questions/1158275/traefik-ingressroute-how-to-proxy-a-request-to-an-external-ip-address)
+- [External services with Gateway API](https://blog.stonegarden.dev/articles/2024/04/k8s-external-services/) (not used)

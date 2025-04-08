@@ -44,11 +44,6 @@ Kubernetes API Server on master node.
 :6443   -> 192.168.86.111:6443 (TCP/UDP)    # nb-rpi-01 (k3s master)
 ```
 
-OpenMediaVault UI.
-```
-:11480  -> 192.168.86.114:80 (TCP/UDP)      # nb-rpi-04
-```
-
 ## Instructions
 
 1. Use [guide](https://www.jetson-ai-lab.com/initial_setup_jon.html) to upgrade firmware on NVIDIA Jetson Orin Nano Developer Kit.
