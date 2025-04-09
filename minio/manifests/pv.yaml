@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-pv
+  namespace: minio
+  labels:
+    store: minio-pv
+spec:
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  capacity:
+    storage: 110Gi
+  nfs:
+    server: 192.168.86.114
+    path: /export/nb-nas-k8s-01
