@@ -1,0 +1,39 @@
+nameOverride: minio
+fullnameOverride: minio
+mode: standalone
+
+rootUser: admin
+rootPassword: <root-password>
+
+persistence:
+  enabled: true
+  existingClaim: minio-pvc
+
+service:
+  type: LoadBalancer
+
+consoleService:
+  type: LoadBalancer
+consoleIngress:
+  enabled: true
+  ingressClassName: nginx
+  path: /
+  hosts:
+    - minio-console.nibir.xyz
+
+users:
+  - accessKey: console
+    secretKey: <console-password>
+    policy: consoleAdmin
+
+metrics:
+  serviceMonitor:
+    enabled: true
+
+resources:
+  requests:
+    memory: 1Gi
+    cpu: 500m
+  limits:
+    memory: 3Gi
+    cpu: 1

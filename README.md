@@ -13,7 +13,8 @@ Infrastucture:
 6. [longhorn/](/longhorn/) - distributed block storage for PVs
 7. [kube-prometheus-stack/](/kube-prometheus-stack) - Prometheus & Grafana monitoring stack
 8. [openmediavault](/openmediavault) - OpemMediaVault for NFS
-9. [minio](/minio) - MinIO for object storage
+9. [minio](/minio) - MinIO object storage
+10. [loki](/loki/) - Grafana Loki for logs
 
 Applications:
 

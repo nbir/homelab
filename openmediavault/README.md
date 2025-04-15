@@ -75,7 +75,7 @@ Note this approach creates a PVC without a StorageClass.
     kubectl apply -f manifests-test
     ```
 
-This will create the following resources:
+    This will create the following resources:
     ```
     namespace/openmediavault-test
     persistentvolume/openmediavault-nfs-test-pv
@@ -105,3 +105,4 @@ This will create the following resources:
 - [Part II: Building a Raspberry Pi NAS with OpenMediaVault: A Step-by-Step Configuration Guide](https://medium.com/@james.prakash/part-ii-building-a-raspberry-pi-nas-with-openmediavault-a-step-by-step-configuration-guide-1a177a6b1dce)
 - [Traefik IngressRoute. How to proxy a request to an external IP-address?](https://serverfault.com/questions/1158275/traefik-ingressroute-how-to-proxy-a-request-to-an-external-ip-address)
 - [External services with Gateway API](https://blog.stonegarden.dev/articles/2024/04/k8s-external-services/) (not used)
+- [Mount a whole NFS Share as PV/C](https://discuss.kubernetes.io/t/mount-a-whole-nfs-share-as-pv-c/28770)

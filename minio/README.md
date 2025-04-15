@@ -50,3 +50,5 @@ Log into the MinIO Console UI. Click Create Bucket under Buckets. The bucket is 
 - [Kubernetes Homelab Series (Part 2): Longhorn + MinIO for Persistent Storage](https://pdelarco.medium.com/kubernetes-homelab-series-part-2-longhorn-minio-for-persistent-storage-7f65e0bfbbb8)
 - [Deploy MinIO Operator With Helm](https://min.io/docs/minio/kubernetes/upstream/operations/install-deploy-manage/deploy-operator-helm.html) (not used)
 - [Deploy a MinIO Tenant with Helm Charts](https://min.io/docs/minio/kubernetes/upstream/operations/install-deploy-manage/deploy-minio-tenant-helm.html) (not used)
+- [How to install MinIO in Kubernetes in 15 min](https://dev.to/giveitatry/how-to-install-minio-in-kubernetes-in-15-min-47h9) (not used)
+- [MinIO Policy Based Access Management](https://min.io/docs/minio/linux/administration/identity-access-management/policy-based-access-control.html#minio-policy)
