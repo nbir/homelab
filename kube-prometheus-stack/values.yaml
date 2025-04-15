@@ -22,6 +22,13 @@ grafana:
     size: 8Gi
     finalizers:
       - kubernetes.io/pvc-protection
+  additionalDataSources:
+    - name: Loki
+      type: loki
+      access: proxy
+      url: http://loki-gateway.loki.svc.cluster.local
+      jsonData:
+        maxLines: 1000
 
 prometheus:
   prometheusSpec:
