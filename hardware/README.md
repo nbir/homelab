@@ -1,7 +1,7 @@
 # Hardware
 
 - Raspberry Pi Zero W (x1)
-- Raspberry Pi 4 Model B 4GB (x5)
+- Raspberry Pi 4 Model B 4GB (x8)
 - NVIDIA Jetson Nano Developer Kit (x1)
 - NVIDIA Jetson Orin Nano Developer Kit (x1)
 - Google WiFi system
@@ -21,6 +21,9 @@ Fixed IPs reserved for Kubernetes master & worker nodes:
 192.168.86.113                              # nb-rpi-03
 192.168.86.114                              # nb-rpi-04 (NFS)
 192.168.86.115                              # nb-rpi-05
+192.168.86.116                              # nb-rpi-06
+192.168.86.117                              # nb-rpi-07
+192.168.86.118                              # nb-rpi-08
 ...
 ```
 

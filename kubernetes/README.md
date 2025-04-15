@@ -12,9 +12,9 @@ A Kubernetes cluster running [k3s](https://k3s.io/) on Raspberry Pi master & wor
 
 3. Enable `cgroups` on each host by appending `cgroup_memory=1 cgroup_enable=memory` to `/boot/firmware/cmdline.txt`.
 
-4. Install **k3s** on the master node by running `sudo curl -sfL https://get.k3s.io | sh -`.
+4. Install **k3s** on the master node by running `sudo curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.31.6+k3s1 sh -`.
 
-5. Install **k3s** on each worker node by running `sudo curl -sfL https://get.k3s.io | K3S_URL=https://<master_node_ip>:6443 K3S_TOKEN=<token> sh -`. Get the server token from `/var/lib/rancher/k3s/server/token`
+5. Install **k3s** on each worker node by running `sudo curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.31.6+k3s1 K3S_URL=https://<master_node_ip>:6443 K3S_TOKEN=<token> sh -`. Get the server token from `/var/lib/rancher/k3s/server/token`
 
 ### Expose Homelab Cluster to Public Internet
 
@@ -46,6 +46,12 @@ kubectl taint nodes <master-node-name> node-role.kubernetes.io/master:NoSchedule
 ```
 
 2. On Longhorn UI, Edit Node > set Node Scheduling to Disable.
+
+## Troubleshooting
+
+## Restart K3s
+
+Run `systemctl restart k3s` on master node. Run `systemctl restart k3s` on worker nodes. If nodes remain in `NotReady`, stop and restart K3s on master node.
 
 ## References
 
