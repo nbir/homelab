@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cyber-maddie-nibir-xyz
+  namespace: cyber-maddie
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: cyber-maddie.nibir.xyz
+    http:
+      paths:
+      - path:
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: cyber-maddie
+            port:
+              number: 80

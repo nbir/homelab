@@ -8,25 +8,22 @@ iOS app [BeerMeTwice](https://apps.apple.com/us/app/beermetwice/id6743499695) on
 
 ## Instructions
 
-Follow instruction on [cheers-counter/README.md](https://github.com/nbir/cheers-counter/blob/main/README.md) to build Docker image locally and push to registry.
+1. Follow instruction on [cheers-counter/README.md](https://github.com/nbir/cheers-counter/blob/main/README.md) to build Docker image locally and push to registry.
 
-Install the `cheers-counter` static website by applying manifest:
+2. Install the `cheers-counter` static website by applying manifest:
+    ```
+    kubectl apply -f manifests
+    ```
 
-```
-kubectl apply -f manifests
-```
+    This will create the following resources:
+    ```
+    namespace/beermetwice
+    deployment.apps/cheers-counter
+    service/cheers-counter
+    ingress.networking.k8s.io/beermetwice-nibir-xyz
+    ```
 
-This will create the following resources:
-
-```
-namespace/beermetwice
-deployment.apps/cheers-counter
-service/cheers-counter
-ingress.networking.k8s.io/beermetwice-nibir-xyz
-```
-
-To pull the latest docker image, perform a rollout restart (`imagePullPolicy: Always` is set). 
-
-```
-kubectl rollout restart deployment cheers-counter
-```
+3. To pull the latest docker image, perform a rollout restart (`imagePullPolicy: Always` is set). 
+    ```
+    kubectl rollout restart deployment cheers-counter
+    ```

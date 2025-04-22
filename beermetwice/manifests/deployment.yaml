@@ -16,6 +16,7 @@ spec:
       containers:
       - name: cheers-counter
         image: docker.io/nibir/cheers-counter:36cc556
+        # image: docker.io/nibir/cheers-counter:debug # Uncomment for debug image
         imagePullPolicy: Always
         ports:
         - containerPort: 80

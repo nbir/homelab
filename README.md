@@ -19,6 +19,7 @@ Infrastucture:
 Applications:
 
 1. [beermetwice/](/beermetwice/) - BeerMeTwice, drink counter app
+2. [cyber-maddie/](/cyber-maddie/) - Tamagotchi style game
 
 ## How To
 
