@@ -16,7 +16,7 @@ Monitoring stack with Prometheus using the Prometheus Operator, Grafana, Alertma
     helm fetch prometheus-community/kube-prometheus-stack --untar
     ```
 
-2. Install the `kube-prometheus-stack` chart.
+2. Install the `kube-prometheus-stack` chart. Replace `.grafana.adminPassword` first.
     ```
     helm install kube-prometheus-stack \
         prometheus-community/kube-prometheus-stack \

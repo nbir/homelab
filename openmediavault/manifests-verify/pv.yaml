@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: openmediavault-nfs-test-pv
-  namespace: openmediavault-test
+  namespace: openmediavault-verify
   labels:
     store: openmediavault-nfs-test-pv
 spec:

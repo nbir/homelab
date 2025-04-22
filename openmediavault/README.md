@@ -2,12 +2,12 @@
 
 ## Shared Folders
 
-```
-nb-nas-test-01          # for SMB/CIFS test
-nb-nas-test-02          # for NFS test
+    ```
+    nb-nas-test-01          # for SMB/CIFS test
+    nb-nas-test-02          # for NFS test
 
-nb-nas-k8s-01           # for Kubernetes use
-```
+    nb-nas-k8s-01           # for Kubernetes use
+    ```
 
 ## Instructions
 
@@ -54,17 +54,17 @@ nb-nas-k8s-01           # for Kubernetes use
 Instead of port forwarding to the NFS host IP, expose it using a Endpoint-Service-Ingress resource combination. The OpenMediaVault UI can be accessed on [http://192.168.86.114/](http://192.168.86.114/) on local network, or [https://openmediavault.nibir.xyz/](https://openmediavault.nibir.xyz/) externally.
 
 Apply manifest:
-```
-kubectl apply -f manifests
-```
+    ```
+    kubectl apply -f manifests
+    ```
 
 This will create the following resources:
-```
-namespace/openmediavault
-endpoints/openmediavault-ui
-service/openmediavault-ui
-ingress.networking.k8s.io/openmediavault-nibir-xyz
-```
+    ```
+    namespace/openmediavault
+    endpoints/openmediavault-ui
+    service/openmediavault-ui
+    ingress.networking.k8s.io/openmediavault-nibir-xyz
+    ```
 
 ### Verify Mounting a NFS PVC to a Pod
 
@@ -72,12 +72,12 @@ Note this approach creates a PVC without a StorageClass.
 
 1. Install test PVC and pod by applying manifests:
     ```
-    kubectl apply -f manifests-test
+    kubectl apply -f manifests-verify
     ```
 
     This will create the following resources:
     ```
-    namespace/openmediavault-test
+    namespace/openmediavault-verify
     persistentvolume/openmediavault-nfs-test-pv
     persistentvolumeclaim/openmediavault-nfs-test-pvc
     pod/openmediavault-nfs-test
@@ -85,15 +85,15 @@ Note this approach creates a PVC without a StorageClass.
 
 2. Verify that the PV is created and can write to it from the pod. Also verify volume on the Longhorn dashboard.
     ```
-    kubectl get pv -n openmediavault-test
+    kubectl get pv -n openmediavault-verify
 
-    kubectl exec -n openmediavault-test -it openmediavault-nfs-test -- sh
+    kubectl exec -n openmediavault-verify -it openmediavault-nfs-test -- sh
     echo "testing" > /data/test.txt
     ```
 
 3. Cleanup test resources:
     ```
-    kubectl delete -f manifests-test
+    kubectl delete -f manifests-verify
     ```
 
 ## Reference

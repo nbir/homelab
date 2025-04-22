@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: longhorn-test-pvc
-  namespace: longhorn-test
+  namespace: longhorn-verify
 spec:
   accessModes:
   - ReadWriteOnce

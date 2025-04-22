@@ -30,7 +30,7 @@ Using MinIO community Helm chart. Not MinIO Operator & MinIO Tenant Helm charts.
     helm fetch minio/minio --version 5.4.0 --untar
     ```
 
-3. Install minio using the `minio` chart. Replace password values.
+3. Install minio using the `minio` chart. Replace password values. Replace `.rootPassword` and `.users[].secretKey` first.
     ```
     helm install minio \
         minio/minio \

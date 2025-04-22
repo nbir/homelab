@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: openmediavault-nfs-test-pvc
-  namespace: openmediavault-test
+  namespace: openmediavault-verify
 spec:
   selector:
     matchLabels:

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: longhorn-test
-  namespace: longhorn-test
+  namespace: longhorn-verify
 spec:
   containers:
   - name: longhorn-test
