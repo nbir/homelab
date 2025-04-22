@@ -53,6 +53,28 @@ kubectl taint nodes <master-node-name> node-role.kubernetes.io/master:NoSchedule
 
 Run `systemctl restart k3s` on master node. Run `systemctl restart k3s` on worker nodes. If nodes remain in `NotReady`, stop and restart K3s on master node.
 
+## Cheatsheet
+
+- List pods on a specific node across all namespaces.
+  ```
+  kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName=<node>
+  ```
+
+- List pods that are not `Running` across all namespaces.
+  ```
+  kubectl get pods --field-selector status.phase!=Running --all-namespaces
+  ```
+
+- List nodes with labels.
+  ```
+  kubectl get nodes --show-labels=true
+  ```
+
+- List nodes with taints.
+  ```
+  kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.taints[*].key}{"\n"}{end}'
+  ```
+
 ## References
 
 - [Step-by-Step Guide: Creating a Kubernetes Cluster on Raspberry Pi 5 with K3s
