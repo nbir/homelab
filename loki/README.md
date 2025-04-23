@@ -18,7 +18,15 @@ Prerequisite: Install `kube-prometheus-stack` as described in [../kube-prometheu
     helm fetch grafana/loki --version 6.29.0 --untar
     ```
 
-2. Install the `loki` chart.
+2. Create a secret containing the MinIO accessKeyId and secretAccessKey.
+    ```
+    kubectl create secret generic loki-minio-creds \
+        -n loki \
+        --from-literal=accessKeyId=<access-key-id> \
+        --from-literal=secretAccessKey=<secret-access-key>
+    ```
+
+3. Install the `loki` chart. Replace `.loki.storage.s3.secretAccessKey` and `.loki.storage.s3.accessKeyId`
     ```
     helm upgrade --install loki \
         grafana/loki \
@@ -35,6 +43,13 @@ Prerequisite: Install `kube-prometheus-stack` as described in [../kube-prometheu
         --version 6.29.0 \
         -f values.yaml \
         --namespace loki
+    ```
+
+### Troubleshooting
+
+1. Check Compactor logs if nothing is stored in the MinIO bucket.
+    ```
+    kubectl logs -n loki -l app.kubernetes.io/component=compactor -f
     ```
 
 ## References
