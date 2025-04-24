@@ -1,0 +1,42 @@
+ollama:
+  enabled: false
+
+ollamaUrls: [
+  "http://192.168.86.131:11434",
+  "http://192.168.86.132:11434"
+]
+
+ingress:
+  enabled: true
+  class: nginx
+  host: open-webui.nibir.xyz
+
+persistence:
+  enabled: true
+  storageClass: longhorn
+  size: 10Gi
+
+service:
+  type: LoadBalancer
+  port: 80
+  containerPort: 8080
+
+postgresql:
+  enabled: true
+  fullnameOverride: open-webui-postgres
+  architecture: standalone
+  auth:
+    database: open-webui
+    postgresPassword: <password>
+    username: open-webui
+    password: <password>
+  primary:
+    persistence:
+      size: 10Gi
+    resources:
+      requests:
+        memory: 256Mi
+        cpu: 250m
+      limits:
+        memory: 512Mi
+        cpu: 500m
