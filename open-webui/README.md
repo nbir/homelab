@@ -30,6 +30,15 @@ http://192.168.86.132:11434                 # nb-njn-02 (orin)
         --namespace open-webui
     ```
 
+    Apply additional changes to `values.yaml`.
+    ```
+    helm upgrade open-webui \
+        open-webui/open-webui \
+        --version 6.4.0 \
+        -f values.yaml \
+        --namespace open-webui
+    ```
+
 ## References
 
 - https://docs.openwebui.com/getting-started/quick-start/

@@ -21,10 +21,13 @@ service:
   port: 80
   containerPort: 8080
 
+databaseUrl: "postgresql://open-webui:<password>@open-webui-postgres.open-webui.svc.cluster.local:5432/open-webui"
 postgresql:
   enabled: true
   fullnameOverride: open-webui-postgres
   architecture: standalone
+  service:
+    port: 5432
   auth:
     database: open-webui
     postgresPassword: <password>
