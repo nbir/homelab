@@ -53,6 +53,36 @@ kubectl taint nodes <master-node-name> node-role.kubernetes.io/master:NoSchedule
 
 Run `systemctl restart k3s` on master node. Run `systemctl restart k3s` on worker nodes. If nodes remain in `NotReady`, stop and restart K3s on master node.
 
+## Maintenance & Cleanup
+
+- Remove exited containers.
+  ```
+  sudo crictl ps -a
+  sudo crictl rm $(sudo crictl ps -a -q)
+  ```
+
+- Cleanup unused containerd images.
+  ```
+  sudo crictl images
+  sudo crictl rmi --prune
+  ```
+
+- Vacuum kine (SQLite) database.
+  ```
+  sqlite3 /var/lib/rancher/k3s/server/db/state.db "VACUUM;"
+  ```
+
+- Delete old Kubernetes events.
+  ```
+  sudo sqlite3 /var/lib/rancher/k3s/server/db/state.db
+
+  sqlite> SELECT COUNT(*) FROM kine WHERE name LIKE '/registry/events/%';
+
+  sqlite> DELETE FROM kine
+    WHERE name LIKE '/registry/events/%'
+    AND (strftime('%s', 'now') - created) > 604800;
+  ```
+
 ## Cheatsheet
 
 - List pods on a specific node across all namespaces.
