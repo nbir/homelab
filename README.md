@@ -15,6 +15,7 @@ Infrastucture:
 8. [openmediavault](/openmediavault) - OpemMediaVault for NFS
 9. [minio](/minio) - MinIO object storage
 10. [loki](/loki/) - Grafana Loki for logs
+11. [vault](/vault/) - Vault for secrets
 
 Applications:
 

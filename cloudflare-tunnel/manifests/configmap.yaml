@@ -10,6 +10,10 @@ data:
     metrics: 0.0.0.0:2000
     no-autoupdate: true
     ingress:
+    - hostname: "vault.nibir.xyz"
+      service: https://ingress-nginx-controller.ingress-nginx.svc.cluster.local:443
+      originRequest:
+        noTLSVerify: true
     - hostname: "*.nibir.xyz"
       service: http://ingress-nginx-controller.ingress-nginx.svc.cluster.local:80
     - service: http_status:404
