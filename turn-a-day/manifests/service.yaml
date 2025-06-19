@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: turn-a-day
+  namespace: turn-a-day
+spec:  
+  selector:
+    app: turn-a-day
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: http
+  type: LoadBalancer

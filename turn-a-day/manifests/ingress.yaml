@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: turn-a-day-nibir-xyz
+  namespace: turn-a-day
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: turn-a-day.nibir.xyz
+    http:
+      paths:
+      - path:
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: turn-a-day
+            port:
+              number: 80

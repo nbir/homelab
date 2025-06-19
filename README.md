@@ -22,6 +22,7 @@ Applications:
 1. [beermetwice/](/beermetwice/) - BeerMeTwice, drink counter app
 2. [cyber-maddie/](/cyber-maddie/) - Tamagotchi style game
 3. [open-webui](/open-webui/) - Open WebUI UI for Ollama
+4. [turn-a-day](/turn-a-day/) - Daily productivity journaling app
 
 ## How To
 
