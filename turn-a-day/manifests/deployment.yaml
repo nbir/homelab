@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: turn-a-day
-        image: docker.io/nibir/turn-a-day:29d32fb
+        image: docker.io/nibir/turn-a-day:3970c7d
         # image: docker.io/nibir/turn-a-day:debug # Uncomment for debug image
         imagePullPolicy: Always
         ports:
