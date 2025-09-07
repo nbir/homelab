@@ -49,6 +49,22 @@ kubectl taint nodes <master-node-name> node-role.kubernetes.io/master:NoSchedule
 
 ## Troubleshooting
 
+### Expired Certificates
+
+When certificates are expired, `kubectl` commands will show an error similar to this, as api-server is unable to communicate with kubelet.
+
+  ```
+  ...
+  proxy error from 127.0.0.1:6443 while dialing <kubelet-ip>:10250, code 502: 502 Bad Gateway
+  ```
+
+  Run the following commands on master and worker nodes to rotate certificate.
+
+  ```
+  sudo k3s certificate rotate
+  sudo systemctl restart k3s
+  ```
+
 ## Restart K3s
 
 Run `systemctl restart k3s` on master node. Run `systemctl restart k3s` on worker nodes. If nodes remain in `NotReady`, stop and restart K3s on master node.
